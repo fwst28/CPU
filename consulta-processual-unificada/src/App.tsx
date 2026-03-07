@@ -349,11 +349,11 @@ export default function App() {
       <Modal 
         isOpen={activeModal === "TRF_AMBIGUITY"} 
         onClose={closeModals} 
-        title="Ambiguidade Detectada"
+        title="Escolha o Tribunal"
       >
         <div className="space-y-4">
           <p className="text-sm text-slate-500 mb-4">
-            O código 01 pode pertencer ao TRF1 ou ao novo TRF6. Por favor, selecione:
+            O código 01 pode pertencer ao TRF1 ou ao TRF6. Por favor, selecione:
           </p>
           <button
             onClick={() => {
