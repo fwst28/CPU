@@ -14,6 +14,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { TRIBUNALS, Tribunal, System, Section } from "./data/tribunals";
 import { Modal } from "./components/Modal";
 import { OtterIcon } from "./components/OtterIcon";
+import Footer from "./components/Footer";
 
 type Mode = "PUBLIC" | "SYSTEM";
 
@@ -200,18 +201,19 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 sm:p-8 relative">
+    <div className="min-h-screen flex flex-col relative">
       {/* Background Decoration */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
         <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-brand-accent-green/30 rounded-full blur-3xl" />
         <div className="absolute -bottom-[10%] -right-[10%] w-[40%] h-[40%] bg-brand-accent-purple/30 rounded-full blur-3xl" />
       </div>
 
-      <motion.main 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="w-full max-w-xl bg-white rounded-3xl shadow-xl shadow-brand-dark/5 border border-brand-light overflow-hidden"
-      >
+      <div className="flex-1 flex items-center justify-center p-4 sm:p-8">
+        <motion.main 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="w-full max-w-xl bg-white rounded-3xl shadow-xl shadow-brand-dark/5 border border-brand-light overflow-hidden"
+        >
         {/* Header */}
         <div className="p-8 pb-6 border-b border-brand-light bg-brand-surface/50">
           <div className="flex items-center gap-4">
@@ -344,12 +346,13 @@ export default function App() {
           )}
         </div>
       </motion.main>
+      </div>
 
       {/* Modals */}
       <Modal 
         isOpen={activeModal === "TRF_AMBIGUITY"} 
         onClose={closeModals} 
-        title="Escolha o Tribunal"
+        title="Selecione o Tribunal"
       >
         <div className="space-y-4">
           <p className="text-sm text-slate-500 mb-4">
@@ -463,6 +466,8 @@ export default function App() {
           </button>
         </div>
       </Modal>
+
+      <Footer />
     </div>
   );
 }
