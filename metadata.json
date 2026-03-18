@@ -1,0 +1,5 @@
+{
+  "name": "Consulta Processual Unificada",
+  "description": "Ferramenta inteligente para identificação de tribunais e consulta de processos via número CNJ.",
+  "requestFramePermissions": []
+}
